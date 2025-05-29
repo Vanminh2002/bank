@@ -48,7 +48,7 @@
 ////            return userRepository.save(user1);
 ////        });
 //    List<BankAccount> bankAccounts = new ArrayList<>();
-//    for (int i = 0; i < 1000; i++) {
+//    for (int i = 0; i < 3000; i++) {
 //        BankAccount bankAccount = new BankAccount();
 //
 //        User randomUser = users.get(random.nextInt(users.size()));

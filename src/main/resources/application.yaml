@@ -1,17 +1,3 @@
-#spring.application.name=Bank
-#server.servlet.context-path=/bank
-## Database
-#spring.datasource.url=jdbc:mysql://localhost:3306/bank_db
-#spring.datasource.username=root
-#spring.datasource.password=manhden123
-#spring.jpa.hibernate.ddl-auto=update
-#spring.jpa.show-sql=true
-##spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-## Server
-#server.port=8080
-## JWT (s? d?ng sau)
-#jwt.secret="bank1234secret"
-#jwt.expiration=86400000
 
 server:
   servlet:
@@ -29,6 +15,10 @@ spring:
     show-sql: true
 
 
+
+
 jwt:
   signerKey: "ZdvNMDHyNDEhxmiBpJy4ZLTnvdeaXursPU5Es/3LyPfn6uVUHC2xq0E+JASVForD"
-
+logging:
+  level:
+    org.springframework.cache: debug

@@ -17,4 +17,10 @@ public interface BankAccountRepository extends CrudRepository<BankAccount, Long>
     @Query("SELECT b from BankAccount b where b.user.id = :user_id")
     List<BankAccount> findByUser_Id(@Param("user_id") Long user_id);
 
+    @Query("SELECT b from BankAccount b where b.user.id = :user_id")
+    List<BankAccount> findByUser_Id(@Param("user_id") Long user_id);
+
+
+    @Query("select u.username , b.balance from BankAccount b inner join  User u on  b.user.id   =u.id")
+    List<Object[]> getUserBalance();
 }

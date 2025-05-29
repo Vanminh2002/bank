@@ -87,11 +87,61 @@ public class BankAccountServiceImplement implements BankAccountService {
         return bankAccountMapper.toResponse(savedAccount);
     }
 
+    @Transactional
     @Override
-    public List<BankAccountResponse> findAccounts(Long id) {
-        List<BankAccount> accounts = bankAccountRepository.findByUser_Id(id);
-        return accounts.stream().map(bankAccountMapper::toResponse).collect(Collectors.toList());
+    public TransferResponse transferBankAccount(TransferRequest request) {
+        String toAccountNumber = request.getToAccount();
+        String fromAccountNumber = request.getToAccount();
+        BigDecimal amount = request.getAmount();
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Amount must be greater than zero");
+        }
+//        if (formBankAccount.equals(toBankAccount)) {
+//            throw new IllegalArgumentException("Bạn không thể chuyền tiền cho chính mình");
+//        }
+        BankAccount fromAccount = bankAccountRepository.findByAccount_number(fromAccountNumber)
+                .orElseThrow(() -> new AppException(ErrorCode.BANK_NUMBER_NOT_FOUND));
+
+        BankAccount toAccount = bankAccountRepository.findByAccount_number(toAccountNumber)
+                .orElseThrow(() -> new AppException(ErrorCode.BANK_NUMBER_NOT_FOUND));
+        if (!"ACTIVE".equalsIgnoreCase(String.valueOf(fromAccount.getStatus()))) {
+            throw new RuntimeException("Tài khoản bạn muốn chuyển tiền đến đã vị khóa hoặc vô hiệu hóa");
+        }
+        if (!"ACTIVE".equalsIgnoreCase(String.valueOf(toAccount.getStatus()))) {
+            throw new RuntimeException("Tài khoản bạn muốn chuyển tiền đến đã vị khóa hoặc vô hiệu hóa");
+        }
+        if (fromAccount.getBalance().compareTo(amount) < 0) {
+            throw new RuntimeException("Số dư của bạn không đủ");
+        }
+
+
+
+
+        fromAccount.setBalance(fromAccount.getBalance().subtract(amount));
+        bankAccountRepository.save(fromAccount);
+        toAccount.setBalance(toAccount.getBalance().add(amount));
+        bankAccountRepository.save(toAccount);
+
+        return null;
     }
+
+    @Override
+    public void softDeleteBankAccount(Long id) {
+        BankAccount account = bankAccountRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.BANK_ACCOUNT_NOT_FOUND));
+
+    }
+
+    @Override
+    public void restoreBankAccount(Long id) {
+
+    }
+
+    @Override
+    public BankAccountResponse getAllBankAccountsSoftDeleted() {
+        return null;
+    }
+
 
     private String generateAccountNumber() {
         // Ví dụ: 12 chữ số bắt đầu bằng "1000"

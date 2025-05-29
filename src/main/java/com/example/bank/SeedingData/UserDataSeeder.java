@@ -20,7 +20,7 @@
 //    @Override
 //    public void run(String... args) throws Exception {
 //        Faker faker = new Faker(new Locale("en"));
-//        for (int i = 0; i < 10; i++) {
+//        for (int i = 0; i < 300; i++) {
 //            User user = new User();
 //            user.setFullName(faker.name().fullName());
 //            user.setUsername(faker.name().username());
