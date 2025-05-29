@@ -25,13 +25,8 @@ public interface BankAccountService {
     BankAccountResponse depositBankAccount(String accountNumber, BigDecimal amount);
     // rút tiền
     // chuyển tiền
-    TransferResponse transferBankAccount(TransferRequest request);
 
 
-    // khóa tài khoản
-    // mở khóa tài khoản
+    List<BankAccountResponse> findAccounts(Long id);
 
-    void softDeleteBankAccount(Long id);
-    void restoreBankAccount(Long id);
-    BankAccountResponse getAllBankAccountsSoftDeleted();
 }

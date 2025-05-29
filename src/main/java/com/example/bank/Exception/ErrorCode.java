@@ -8,6 +8,7 @@ public enum ErrorCode {
     USER_NOT_FOUND(1001, "User Not Found"),
     BANK_NUMBER_NOT_FOUND(1002, "Bank Number Not Found"),
     BANK_ACCOUNT_NOT_FOUND(1003, "Bank Account Not Found"),
+    USER_DO_NOT_HAVE_ACCOUNT(1004, "User Do Not Have Account"),
     ;
 
     ErrorCode(int code, String message) {

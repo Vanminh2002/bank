@@ -28,6 +28,6 @@ public class User {
     boolean deleted = false;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
     List<BankAccount> bankAccounts;
 }

@@ -73,6 +73,19 @@ public class BankAccountController {
                     .message("Deposit failed")
                     .build();
         }
+
+
+
+    }
+
+
+    @GetMapping("/find-by-user/{id}")
+    ApiResponse<List<BankAccountResponse>> getBankAccountByUserId(@PathVariable Long id) {
+        List<BankAccountResponse> responses = bankAccountServiceImplement.findAccounts(id);
+        return ApiResponse.<List<BankAccountResponse>>builder()
+                .result(responses)
+                .message("Bank account found by id" + id)
+                .build();
     }
 }
 
