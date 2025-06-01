@@ -126,6 +126,12 @@ public class BankAccountServiceImplement implements BankAccountService {
     }
 
     @Override
+    public List<BankAccountResponse> findAccountUser(Long id) {
+        List<BankAccount> bankAccounts = bankAccountRepository.findByUser_Id(id);
+        return bankAccounts.stream().map(bankAccountMapper::toResponse).collect(Collectors.toList());
+    }
+
+    @Override
     public void softDeleteBankAccount(Long id) {
         BankAccount account = bankAccountRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.BANK_ACCOUNT_NOT_FOUND));

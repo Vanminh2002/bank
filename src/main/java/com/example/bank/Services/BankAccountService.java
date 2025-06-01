@@ -27,7 +27,7 @@ public interface BankAccountService {
     // chuyển tiền
     TransferResponse transferBankAccount(TransferRequest request);
 
-
+    List<BankAccountResponse> findAccountUser(Long id);
     // khóa tài khoản
     // mở khóa tài khoản
 

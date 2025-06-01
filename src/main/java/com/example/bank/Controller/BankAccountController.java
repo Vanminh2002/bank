@@ -74,6 +74,15 @@ public class BankAccountController {
                     .build();
         }
     }
+
+    @GetMapping("/find-by-user/{id}")
+    ApiResponse<List<BankAccountResponse>> findBankAccountByUserId(@PathVariable Long id) {
+        List<BankAccountResponse> response = bankAccountServiceImplement.findAccountUser(id);
+        return ApiResponse.<List<BankAccountResponse>>builder()
+                .result(response)
+                .message("Bank account found by id" + id)
+                .build();
+    }
 }
 
 
