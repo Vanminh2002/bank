@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "bank_account")
@@ -30,14 +31,17 @@ public class BankAccount {
     @JoinColumn(name = "user_id")
     User user;
 
+    @OneToMany
+    List<LoanAccount> loanAccountList;
 
-    public enum status{
+
+    public enum status {
         ACTIVE,
         UNACTIVE,
     }
 
 
-    public enum type{
+    public enum type {
         SAVING,
         CHECKING,
     }

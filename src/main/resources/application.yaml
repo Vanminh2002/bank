@@ -18,7 +18,8 @@ spring:
 
 
 jwt:
-  signerKey: "ZdvNMDHyNDEhxmiBpJy4ZLTnvdeaXursPU5Es/3LyPfn6uVUHC2xq0E+JASVForD"
+  signerKey: "/F70vejt8f73kCzBypDPo7D7SrfrLKV3OLqWC24RhXyQPDOPUxx+XWV56M867PzE"
+
 logging:
   level:
     org.springframework.cache: debug
