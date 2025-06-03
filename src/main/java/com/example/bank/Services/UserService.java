@@ -24,6 +24,6 @@ public interface UserService {
 
     List<UserResponse> getAllDeletedUsers();
 
-
+    UserResponse getMyInfo();
 
 }

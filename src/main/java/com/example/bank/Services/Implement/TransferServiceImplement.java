@@ -32,8 +32,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class TransferServiceImplement implements TransferService {
-    UserRepository userRepository;
-    BankAccountMapper bankAccountMapper;
+
     BankAccountRepository bankAccountRepository;
     private final TransferMapper transferMapper;
     private final TransferRepository transferRepository;

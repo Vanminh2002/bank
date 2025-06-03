@@ -2,9 +2,11 @@ package com.example.bank.Controller;
 
 import com.example.bank.Dto.Request.AuthenticationRequest;
 import com.example.bank.Dto.Request.IntroSpectRequest;
+//import com.example.bank.Dto.Request.RegisterRequest;
 import com.example.bank.Dto.Response.ApiResponse;
 import com.example.bank.Dto.Response.AuthenticationResponse;
 import com.example.bank.Dto.Response.IntrospectResponse;
+//import com.example.bank.Dto.Response.RegisterResponse;
 import com.example.bank.Services.Implement.AuthenticationServiceImplement;
 import com.nimbusds.jose.JOSEException;
 import lombok.AccessLevel;
@@ -39,4 +41,12 @@ public class AuthenticationController {
                 .result(result)
                 .build();
     }
+//    @PostMapping("/register")
+//    ApiResponse<RegisterResponse> register(@RequestBody RegisterRequest request) throws ParseException, JOSEException {
+//        RegisterResponse response = authenticationServiceImplement.register(request);
+//        return ApiResponse.<RegisterResponse>builder()
+//                .result(response)
+//                .message("Successfully registered")
+//                .build();
+//    }
 }

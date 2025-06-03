@@ -1,6 +1,7 @@
 //package com.example.bank.SeedingData;
 //
 //import com.example.bank.Entity.User;
+//import com.example.bank.Enums.Role;
 //import com.example.bank.Repository.UserRepository;
 //import com.github.javafaker.Faker;
 //import lombok.AccessLevel;
@@ -9,6 +10,7 @@
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.stereotype.Component;
 //
+//import java.util.HashSet;
 //import java.util.Locale;
 //
 //@Component
@@ -25,6 +27,9 @@
 //            user.setFullName(faker.name().fullName());
 //            user.setUsername(faker.name().username());
 //            user.setPassword(faker.internet().password());
+//            HashSet<String> roles = new HashSet<>();
+//            roles.add(Role.USER.name());
+//            user.setRoles(roles);
 //            user.setDeleted(false);
 //            userRepository.save(user);
 //        }
