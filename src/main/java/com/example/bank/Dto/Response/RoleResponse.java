@@ -1,6 +1,5 @@
 package com.example.bank.Dto.Response;
 
-import com.example.bank.Entity.Role;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,12 +9,11 @@ import lombok.experimental.FieldDefaults;
 import java.util.Set;
 
 @Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserResponse {
-    String username;
-    String fullName;
-    boolean deleted;
-    Set<RoleResponse> roles;
+public class RoleResponse {
+    String name;
+    String description;
+    Set<PermissionResponse> permissions;
 }

@@ -11,16 +11,16 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Builder
+@Table(name = "role")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     String name;
     String description;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     Set<Permission> permissions;
 
 }

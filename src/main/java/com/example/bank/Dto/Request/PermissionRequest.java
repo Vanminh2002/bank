@@ -7,17 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
-
 @Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserUpdateRequest {
-    @Size(min = 5, message = "Password must be 5 to 20 characters")
-
-    String password;
-    String fullName;
-    List<String> roles;
-
+public class PermissionRequest {
+    String name;
+    String description;
 }

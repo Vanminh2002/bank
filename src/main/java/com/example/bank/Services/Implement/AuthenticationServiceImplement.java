@@ -2,10 +2,8 @@ package com.example.bank.Services.Implement;
 
 import com.example.bank.Dto.Request.AuthenticationRequest;
 import com.example.bank.Dto.Request.IntroSpectRequest;
-//import com.example.bank.Dto.Request.RegisterResponseequest;
 import com.example.bank.Dto.Response.AuthenticationResponse;
 import com.example.bank.Dto.Response.IntrospectResponse;
-//import com.example.bank.Dto.Response.RegisterResponse;
 import com.example.bank.Entity.User;
 import com.example.bank.Exception.AppException;
 import com.example.bank.Exception.ErrorCode;
@@ -18,7 +16,6 @@ import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.AccessLevel;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import lombok.experimental.FieldDefaults;
@@ -138,7 +135,12 @@ public class AuthenticationServiceImplement implements AuthenticationService {
         StringJoiner scopes = new StringJoiner(" ");
         // CollectionUtils.isEmpty hàm kiểm tra xem có empty hay không
         if (!CollectionUtils.isEmpty(user.getRoles())) {
-            user.getRoles().forEach(scopes::add);
+            user.getRoles().forEach(role -> {
+                scopes.add("ROLE_"+role.getName());
+                if (!CollectionUtils.isEmpty(role.getPermissions()))
+                    role.getPermissions()
+                            .forEach(permission -> scopes.add(permission.getName()));
+            });
         }
         return scopes.toString();
     }

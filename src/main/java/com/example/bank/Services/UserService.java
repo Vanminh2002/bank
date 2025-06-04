@@ -16,6 +16,7 @@ public interface UserService {
     void deleteUserById(Long id);
 
     UserResponse updateUser(Long id, UserUpdateRequest userRequest);
+    UserResponse updateUserByAdmin(Long id, UserUpdateRequest userRequest);
 
 
     void softDeleteUser(Long id);

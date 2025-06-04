@@ -12,11 +12,10 @@ import java.util.Set;
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "permission")
 
 public class Permission {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     String name;
     String description;
 

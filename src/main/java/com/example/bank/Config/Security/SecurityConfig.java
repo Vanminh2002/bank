@@ -37,6 +37,9 @@ public class SecurityConfig {
 //            "/transfer/**",
 //            "/account/**",
             "/auth/**",
+            "/permission/**",
+            "/role/**",
+
 
     };
 
@@ -67,7 +70,7 @@ public class SecurityConfig {
     JwtAuthenticationConverter jwtAuthenticationConverter() {
         JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
         // set prefix = ROLE_ thay vì SCOPE_
-        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("ROLE_");
+        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("");
 
         JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
         converter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);

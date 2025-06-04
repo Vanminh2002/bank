@@ -47,6 +47,10 @@ public class UserController {
     ResponseEntity<UserResponse> updateUser(@Valid @PathVariable Long id, @RequestBody UserUpdateRequest userRequest) {
         return ResponseEntity.ok(userService.updateUser(id, userRequest));
     }
+    @PutMapping("/update-by-admin/{id}")
+    ResponseEntity<UserResponse> updateUserByAdmin(@Valid @PathVariable Long id, @RequestBody UserUpdateRequest userRequest) {
+        return ResponseEntity.ok(userService.updateUserByAdmin(id, userRequest));
+    }
 
 
     @PutMapping("/soft-delete/{id}")

@@ -25,16 +25,13 @@ public class User {
     String fullName;
 
     boolean deleted = false;
-//    @OneToMany
-    Set<String> roles;
+
+
+    @ManyToMany
+    Set<Role> roles;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<BankAccount> bankAccounts;
 
-
-    public enum SetRoles {
-        ADMIN,
-        USER
-    }
 }

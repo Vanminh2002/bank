@@ -14,6 +14,10 @@ public enum ErrorCode {
     UNAUTHORIZED(1006, "Bạn không có quyền", HttpStatus.FORBIDDEN),
     USERNAME_INVALID(1007, "Username must be at least 5 characters", HttpStatus.BAD_REQUEST),
     PASSWORD_INVALID(1008, "Password must be 5 to 20 characters", HttpStatus.BAD_REQUEST),
+    PERMISSION_EXISTED(1009, "Permission already existed", HttpStatus.CONFLICT),
+    PERMISSION_NOT_FOUND(10010, "Permission Not Found", HttpStatus.NOT_FOUND),
+    ROLE_EXISTED(10011, "Bạn đã có quyền này", HttpStatus.CONFLICT),
+    ROLE_NOT_FOUND(10012, "Role Not Found", HttpStatus.NOT_FOUND),
     ;
 
     ErrorCode(int code, String message,HttpStatus httpStatus) {
