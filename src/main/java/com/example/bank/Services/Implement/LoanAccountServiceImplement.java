@@ -1,6 +1,8 @@
 package com.example.bank.Services.Implement;
 
+import com.example.bank.Dto.Request.LoanAccountRequest;
 import com.example.bank.Dto.Request.TransferRequest;
+import com.example.bank.Dto.Response.LoanAccountResponse;
 import com.example.bank.Dto.Response.TransferResponse;
 import com.example.bank.Entity.BankAccount;
 import com.example.bank.Entity.TransferTransaction;
@@ -28,4 +30,9 @@ import java.math.BigDecimal;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class LoanAccountServiceImplement implements LoanAccountService {
 
+    @Override
+    public LoanAccountResponse applyLoanAccount(LoanAccountRequest loanAccountRequest) {
+
+        return null;
+    }
 }

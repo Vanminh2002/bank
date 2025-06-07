@@ -10,7 +10,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "bank_account")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)

@@ -40,13 +40,6 @@
 //            return;
 //        }
 //
-////        User user = userRepository.findById(1L).orElseGet(()->{
-////            User user1 = new User();
-////            user1.setUsername("Test1");
-////            user1.setPassword(passwordEncoder.encode("123456"));
-////            user1.setFullName("Test1");
-////            return userRepository.save(user1);
-////        });
 //    List<BankAccount> bankAccounts = new ArrayList<>();
 //    for (int i = 0; i < 3000; i++) {
 //        BankAccount bankAccount = new BankAccount();
@@ -60,7 +53,7 @@
 //        bankAccounts.add(bankAccount);
 //    }
 //    bankAccountRepository.saveAll(bankAccounts);
-//        System.out.println("Bank account created 1000 accounts");
+//        System.out.println("Bank account created 3000 accounts");
 //
 //    }
 //}
